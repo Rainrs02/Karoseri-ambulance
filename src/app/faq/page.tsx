@@ -171,7 +171,7 @@ export default function FAQPage() {
             className="btn-mech-primary relative z-10 flex items-center gap-2 py-2.5 px-4 text-xs font-semibold"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Chat Teknis Sekarang</span>
+            <span>Konsultasi Sekarang</span>
           </button>
         </div>
 
