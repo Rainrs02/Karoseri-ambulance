@@ -18,7 +18,7 @@ const videos = [
 
 export default function VideoGallery() {
   return (
-    <section className="py-20 lg:py-32 bg-navy-dark relative overflow-hidden">
+    <section id="video-gallery" className="py-20 lg:py-32 bg-navy-dark relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-teal/30 to-transparent"></div>
       <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-accent-teal/5 blur-[120px] rounded-full pointer-events-none"></div>

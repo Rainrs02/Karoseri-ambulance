@@ -21,11 +21,11 @@ export default function FloatingWhatsApp() {
       <div className="fixed bottom-6 right-6 z-40">
         <motion.button
           onClick={() => openModal()}
-          className="flex items-center gap-2 bg-cta-orange text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full border border-navy-dark shadow-solid transition-all duration-150 hover:bg-cta-hover active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#0B1D3A]"
+          className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe57] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full border border-navy-dark shadow-solid transition-all duration-150 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#0B1D3A]"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <MessageSquare className="w-5 h-5 animate-pulse" />
+          <CustomIcon name="whatsapp" size={20} className="animate-pulse" />
           <span className="hidden sm:inline font-oswald text-xs uppercase tracking-wider font-semibold">
             Konsultasi Sekarang
           </span>

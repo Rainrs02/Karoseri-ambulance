@@ -85,7 +85,27 @@ export default function Kontak() {
   const handleSubmit = async () => {
     const success = await submitForm()
     if (success) {
-      // Form direset secara terpisah jika sukses atau dibiarkan agar user melihat status sukses
+      const msg = `*PENGAJUAN KONSULTASI KAROSERI AMBULANCE*
+----------------------------------------
+*Data Diri*
+Nama: ${formData.nama}
+Instansi: ${formData.institusi || '-'}
+Telepon: ${formData.telepon}
+Email: ${formData.email}
+
+*Detail Kendaraan*
+Sasis: ${formData.merkKendaraan} ${formData.tipeKendaraan} (${formData.tahunKendaraan})
+
+*Kebutuhan Karoseri*
+Tipe: ${formData.tipeAmbulance.toUpperCase()}
+Layanan: ${(formData.layananKustom || []).join(', ') || '-'}
+Budget: ${formData.budgetRange}
+Deadline: ${formData.deadlinePengerjaan}
+----------------------------------------
+Mohon info lebih lanjut. Terima kasih.`
+
+      const waLink = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`
+      window.open(waLink, '_blank')
     }
   }
 
@@ -415,25 +435,13 @@ export default function Kontak() {
                         </div>
 
                         <div className="space-y-2 pt-2">
-                          <label className="block font-oswald text-[10px] uppercase tracking-wider font-bold">
-                            Unggah Foto Kendaraan (Opsional)
-                          </label>
-                          <div
-                            onClick={() => fileInputRef.current?.click()}
-                            className="border-2 border-dashed border-navy/20 rounded-[4px] p-6 text-center cursor-pointer hover:border-accent-teal transition-colors bg-white flex flex-col items-center justify-center gap-2"
-                          >
-                            <UploadCloud className="w-8 h-8 text-accent-teal" />
-                            <span className="font-oswald text-[10px] uppercase tracking-wider font-semibold">
-                              {formData.fotoKendaraanName || 'Pilih File Gambar'}
+                          <div className="border-2 border-dashed border-accent-teal/50 rounded-[4px] p-4 text-center bg-accent-teal/5 flex flex-col items-center justify-center gap-1.5">
+                            <span className="font-oswald text-[11px] uppercase tracking-wider font-bold text-navy">
+                              Informasi Foto & Video Kendaraan
                             </span>
-                            <span className="text-[9px] text-navy/40 font-inter">Format: JPG, PNG maksimal 5MB</span>
-                            <input
-                              type="file"
-                              ref={fileInputRef}
-                              onChange={handleFileUpload}
-                              accept="image/*"
-                              className="hidden"
-                            />
+                            <span className="text-xs text-navy/70 font-inter max-w-sm mx-auto">
+                              Harap siapkan Foto & Video mobil Anda untuk nantinya dikirimkan langsung ke Admin via WhatsApp saat konsultasi.
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -528,7 +536,7 @@ export default function Kontak() {
                             <div><strong>Telepon:</strong> {formData.telepon}</div>
                             <div><strong>Email:</strong> {formData.email}</div>
                             <div><strong>Mobil/Sasis:</strong> {formData.merkKendaraan} {formData.tipeKendaraan} ({formData.tahunKendaraan})</div>
-                            <div><strong>Foto Terlampir:</strong> {formData.fotoKendaraanName || 'Nihil'}</div>
+
                             <div><strong>Tipe Ambulance:</strong> {formData.tipeAmbulance.toUpperCase()}</div>
                             <div><strong>Deadline:</strong> {formData.deadlinePengerjaan}</div>
                             <div className="col-span-2">

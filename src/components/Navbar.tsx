@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone, MessageSquare } from 'lucide-react'
 import CustomIcon from './icons/CustomIcon'
 
 export default function Navbar() {
@@ -152,12 +152,10 @@ export default function Navbar() {
           {/* CTA & Contact */}
           <div className="hidden lg:flex items-center gap-5">
             <Link
-              href="https://wa.me/6281234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs py-2 px-4 rounded-[4px] flex items-center gap-2 font-oswald font-medium tracking-wide transition-colors"
+              href="/kontak"
+              className="bg-cta-orange hover:bg-cta-hover text-white text-xs py-2 px-4 rounded-[4px] flex items-center gap-2 font-oswald font-medium tracking-wide transition-all border border-navy-dark shadow-solid hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none"
             >
-              <CustomIcon name="whatsapp" size={16} />
+              <MessageSquare size={16} />
               <span>Konsultasi Sekarang</span>
             </Link>
           </div>
