@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0B1D3A;
+  --color-navy-dark: #071326;
+  --color-navy-light: #122B52;
+  --color-navy-card: #0F2547;
+  --color-accent-teal: #0EA5E9;
+  --color-accent-cyan: #38BDF8;
+  --color-abu-light: #F5F7FA;
+  --color-abu-border: #E2E8F0;
+  --color-abu-dark: #1E293B;
+  --color-cta-orange: #F97316;
+  --color-cta-hover: #EA580C;
+
+  --font-oswald: var(--font-oswald), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-fira: var(--font-fira-code), monospace;
+
+  --shadow-solid: 4px 4px 0px 0px #0B1D3A;
+  --shadow-solid-teal: 4px 4px 0px 0px #0EA5E9;
+  --shadow-solid-orange: 4px 4px 0px 0px #F97316;
+  --shadow-solid-white: 4px 4px 0px 0px #FFFFFF;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #0B1D3A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* Blueprint Grid Background Pattern */
+.bg-blueprint {
+  background-color: #0B1D3A;
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-blueprint-light {
+  background-color: #F5F7FA;
+  background-image: 
+    linear-gradient(rgba(11, 29, 58, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 29, 58, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom mechanics & technical line helps */
+.border-blueprint {
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.border-blueprint-active {
+  border-color: rgba(14, 165, 233, 0.6);
+}
+
+/* Mechanical solid button styles */
+.btn-mech-primary {
+  @apply font-oswald uppercase tracking-wider bg-cta-orange text-white px-6 py-3 border border-navy-dark rounded-[4px] shadow-solid transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-solid-orange active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_0px_#0B1D3A];
+}
+
+.btn-mech-secondary {
+  @apply font-oswald uppercase tracking-wider bg-white text-navy px-6 py-3 border border-navy rounded-[4px] shadow-solid-teal transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-solid active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_0px_#0EA5E9];
+}
+
+.btn-mech-navy {
+  @apply font-oswald uppercase tracking-wider bg-navy text-white px-6 py-3 border border-accent-teal rounded-[4px] shadow-solid-teal transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-solid-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_0px_#0EA5E9];
+}
