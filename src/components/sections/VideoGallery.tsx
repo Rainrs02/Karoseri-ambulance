@@ -5,15 +5,12 @@ import { motion } from 'framer-motion'
 import { Play } from 'lucide-react'
 
 const videos = [
-  { id: 1, title: 'Demo Karoseri 1', src: '/assets/videos/Vidio%20Demo%20(1).MOV', type: 'Showcase' },
-  { id: 2, title: 'Demo Karoseri 2', src: '/assets/videos/Vidio%20Demo%20(1).mp4', type: 'Showcase' },
-  { id: 3, title: 'Demo Karoseri 3', src: '/assets/videos/Vidio%20Demo%20(2).MOV', type: 'Showcase' },
-  { id: 4, title: 'Demo Karoseri 4', src: '/assets/videos/Vidio%20Demo%20(2).mp4', type: 'Showcase' },
-  { id: 5, title: 'Demo Karoseri 5', src: '/assets/videos/Vidio%20Demo%20(3).MOV', type: 'Showcase' },
-  { id: 6, title: 'Demo Karoseri 6', src: '/assets/videos/Vidio%20Demo%20(3).mp4', type: 'Showcase' },
-  { id: 7, title: 'Demo Karoseri 7', src: '/assets/videos/Vidio%20Demo%20(4).MOV', type: 'Showcase' },
-  { id: 8, title: 'Demo Karoseri 8', src: '/assets/videos/Vidio%20Demo%20(5).MOV', type: 'Showcase' },
-  { id: 9, title: 'Demo Karoseri 9', src: '/assets/videos/Vidio%20Demo%20(6).MOV', type: 'Showcase' },
+  { id: 1, title: 'Demo Karoseri 1', src: '/assets/videos/Vidio%20Demo%20(1).mp4', type: 'Showcase' },
+  { id: 2, title: 'Demo Karoseri 2', src: '/assets/videos/Vidio%20Demo%20(2).mp4', type: 'Showcase' },
+  { id: 3, title: 'Demo Karoseri 3', src: '/assets/videos/Vidio%20Demo%20(3).mp4', type: 'Showcase' },
+  { id: 4, title: 'Demo Karoseri 4', src: '/assets/videos/Vidio%20Demo%20(4).mp4', type: 'Showcase' },
+  { id: 5, title: 'Demo Karoseri 5', src: '/assets/videos/Vidio%20Demo%20(5).mp4', type: 'Showcase' },
+  { id: 6, title: 'Demo Karoseri 6', src: '/assets/videos/Vidio%20Demo%20(6).mp4', type: 'Showcase' },
 ]
 
 export default function VideoGallery() {
