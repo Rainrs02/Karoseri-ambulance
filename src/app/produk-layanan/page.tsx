@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Check, Settings, Activity, ShieldAlert, Cpu } from 'lucide-react'
 import CustomIcon from '@/components/icons/CustomIcon'
@@ -9,6 +9,22 @@ import { useContactStore } from '@/store/contactStore'
 export default function ProdukLayanan() {
   const openWhatsApp = useContactStore((state) => state.openModal)
   const [activeTab, setActiveTab] = useState<'tipe' | 'interior' | 'eksterior' | 'retrofit'>('tipe')
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (['tipe', 'interior', 'eksterior', 'retrofit'].includes(hash)) {
+        setActiveTab(hash as 'tipe' | 'interior' | 'eksterior' | 'retrofit')
+      }
+    }
+    
+    // Set saat awal render
+    handleHashChange()
+    
+    // Listen saat URL hash berubah
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const itemsAmbulance = [
     {

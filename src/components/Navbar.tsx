@@ -30,16 +30,28 @@ export default function Navbar() {
     setActiveDropdown(null)
   }, [pathname])
 
+  const handleDropdownClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const [path, hash] = href.split('#')
+    
+    // Jika kita sudah berada di halaman yang sama dan ada hash
+    if (hash && path === pathname) {
+      e.preventDefault()
+      window.location.hash = hash
+      setIsOpen(false)
+      setActiveDropdown(null)
+    }
+  }
+
   const navLinks = [
     { name: 'Beranda', href: '/' },
     { name: 'Tentang Kami', href: '/tentang-kami' },
     {
-      name: 'Modifikasi Ambulance',
+      name: 'Layanan Kami',
       href: '/produk-layanan',
       dropdown: [
-        { name: 'Interior', href: '/produk-layanan#interior' },
-        { name: 'Eksterior', href: '/produk-layanan#eksterior' },
         { name: 'Tipe Ambulance', href: '/produk-layanan#tipe' },
+        { name: 'Modifikasi Interior', href: '/produk-layanan#interior' },
+        { name: 'Modifikasi Eksterior', href: '/produk-layanan#eksterior' },
         { name: 'Service & Retrofit', href: '/produk-layanan#retrofit' },
       ],
     },
@@ -102,16 +114,19 @@ export default function Navbar() {
                     </button>
 
                     {activeDropdown === link.name && (
-                      <div className="absolute top-full left-0 w-52 bg-navy border border-accent-teal/30 shadow-solid rounded-[4px] py-2 z-50 animate-fade-in mt-1">
-                        {link.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-2 font-inter text-xs text-abu-light/80 hover:bg-accent-teal hover:text-white transition-colors duration-150"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
+                      <div className="absolute top-full left-0 w-52 pt-2 z-50 animate-fade-in">
+                        <div className="bg-navy border border-accent-teal/30 shadow-solid rounded-[4px] py-2">
+                          {link.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              onClick={(e) => handleDropdownClick(e, subItem.href)}
+                              className="block px-4 py-2 font-inter text-xs text-abu-light/80 hover:bg-accent-teal hover:text-white transition-colors duration-150"
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -143,7 +158,7 @@ export default function Navbar() {
               className="bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs py-2 px-4 rounded-[4px] flex items-center gap-2 font-oswald font-medium tracking-wide transition-colors"
             >
               <CustomIcon name="whatsapp" size={16} />
-              <span>Konsultasi Proyek</span>
+              <span>Konsultasi Sekarang</span>
             </Link>
           </div>
 
@@ -175,6 +190,7 @@ export default function Navbar() {
                       <Link
                         key={subItem.name}
                         href={subItem.href}
+                        onClick={(e) => handleDropdownClick(e, subItem.href)}
                         className="block pl-6 pr-3 py-2 font-inter text-xs text-abu-light/75 hover:bg-accent-teal/20 hover:text-white"
                       >
                         {subItem.name}
@@ -200,7 +216,7 @@ export default function Navbar() {
                 href="/kontak"
                 className="w-full text-center block btn-mech-primary py-2.5 text-sm"
               >
-                Konsultasi Proyek
+                Konsultasi Sekarang
               </Link>
             </div>
           </div>

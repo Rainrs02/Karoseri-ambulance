@@ -16,7 +16,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Side: Technical Info & Headlines */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -24,7 +24,7 @@ export default function HeroSection() {
               className="flex items-center gap-2"
             >
               <span className="font-fira text-xs text-accent-teal uppercase tracking-widest border border-accent-teal/30 bg-navy-card/85 px-4 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
-                <span className="text-yellow-400">⚡</span> MODIFIKASI TERSTANDARISASI & BERGARANSI
+                <span className="text-yellow-400">⚡</span> KAROSERI AMBULANCE CUSTOM
               </span>
             </motion.div>
 
@@ -34,7 +34,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-wide uppercase leading-tight"
             >
-              Transformasi Presisi <br />
+              Jasa Custom <br />
               <span className="text-accent-teal">Karoseri Ambulance</span> <br />
               Standar Medis Nasional
             </motion.h1>
@@ -45,8 +45,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-abu-light/80 text-sm sm:text-base font-inter leading-relaxed max-w-xl"
             >
-              Kami memodifikasi kendaraan Anda (Toyota Hiace, Suzuki APV, Mitsubishi Triton, dll) menjadi unit ambulance tangguh, higienis, dan terintegrasi sistem kelistrikan & oksigen bersertifikasi resmi. 
-              <span className="text-accent-teal font-semibold"> *Perusahaan tidak menjual mobil, hanya memodifikasi bodi interior/eksterior.</span>
+              Kami memodifikasi kendaraan Anda (Toyota Hiace, Suzuki APV, Mitsubishi Triton, dll) menjadi unit ambulance tangguh, higienis, kuat, dengan furniture dan peralatan terlengkap dengan harga yang kompetitif
             </motion.p>
 
             {/* Micro technical details box */}
@@ -96,12 +95,12 @@ export default function HeroSection() {
           </div>
 
           {/* Right Side: Asymmetrical Image Grid Showcase */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative order-1 lg:order-2 -mx-4 sm:mx-0 mt-4 sm:mt-0 px-2 sm:px-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative w-full max-w-[480px] mx-auto pb-10"
+              className="relative w-full sm:max-w-[480px] mx-auto pb-12 sm:pb-10"
             >
               {/* Radial glow background behind images */}
               <div className="absolute -inset-4 bg-accent-teal/15 rounded-full filter blur-3xl pointer-events-none" />

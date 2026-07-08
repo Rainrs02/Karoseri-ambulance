@@ -22,8 +22,8 @@ export default function Home() {
       <Layanan />
       <AlurPengerjaan />
       <MengapaKami />
-      <PortofolioTerbaru />
       <VideoGallery />
+      <PortofolioTerbaru />
       <KlienPartner />
       <TestimoniHome />
       <ArtikelTerbaru />
