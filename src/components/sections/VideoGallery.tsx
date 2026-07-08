@@ -66,19 +66,39 @@ export default function VideoGallery() {
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/50">
                 <video 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
                   src={video.src}
                   muted
-                  loop
                   playsInline
-                  onMouseOver={(e) => e.currentTarget.play()}
-                  onMouseOut={(e) => e.currentTarget.pause()}
                   preload="metadata"
+                  onClick={(e) => {
+                    const video = e.currentTarget;
+                    
+                    const handleFullscreenChange = () => {
+                      if (!document.fullscreenElement && !(document as any).webkitFullscreenElement) {
+                        video.pause();
+                        video.muted = true;
+                        video.controls = false;
+                      }
+                    };
+                    
+                    document.addEventListener('fullscreenchange', handleFullscreenChange, { once: true });
+                    document.addEventListener('webkitfullscreenchange', handleFullscreenChange, { once: true });
+                    
+                    if (video.requestFullscreen) {
+                      video.requestFullscreen();
+                    } else if ((video as any).webkitRequestFullscreen) {
+                      (video as any).webkitRequestFullscreen();
+                    }
+                    video.muted = false;
+                    video.controls = true;
+                    video.play();
+                  }}
                 />
                 
                 {/* Play overlay button */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300 group-hover:opacity-0">
-                  <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white group-hover:bg-accent-teal/80 group-hover:scale-110 transition-all duration-300">
                     <Play size={20} className="fill-white/80 translate-x-0.5" />
                   </div>
                 </div>
